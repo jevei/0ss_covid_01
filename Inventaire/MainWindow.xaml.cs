@@ -40,6 +40,7 @@ namespace Inventaire
         {
             InitializeComponent();
             InitValues();
+            Console.WriteLine("hello");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
