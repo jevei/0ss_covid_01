@@ -1,63 +1,24 @@
-﻿using BillingManagement.Business;
-using BillingManagement.Models;
-using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
+﻿using BillingManagement.UI.ViewModels;
 using System.Windows;
 
-namespace Inventaire
+namespace BillingManagement.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        CustomersDataService customersDataService = new CustomersDataService();
+        
 
-        private ObservableCollection<Customer> customers;
-        private Customer selectedCustomer;
-
-        public ObservableCollection<Customer> Customers { 
-            get => customers;
-            private set
-            {
-                customers = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Customer SelectedCustomer { 
-            get => selectedCustomer;
-            set
-            {
-                selectedCustomer = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public MainWindow()
+        public MainWindow(CustomersViewModel vm)
         {
             InitializeComponent();
-            InitValues();
-            Console.WriteLine("hello");
+            DataContext = vm;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
-        protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void InitValues()
-        {
-            Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
-            Debug.WriteLine(Customers.Count);
-        }
-
-        private void CustomerNew_Click(object sender, RoutedEventArgs e)
+        /*private void CustomerNew_Click(object sender, RoutedEventArgs e)
         {
             Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
             Customers.Add(temp);
@@ -75,6 +36,6 @@ namespace Inventaire
 
             lvCustomers.SelectedIndex = currentIndex;
 
-        }
+        }*/
     }
 }
