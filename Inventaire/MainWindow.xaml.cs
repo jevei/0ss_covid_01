@@ -14,9 +14,13 @@ namespace BillingManagement.UI
         {
             InitializeComponent();
             DataContext = vm;
+            if()
+            {
+
+            }
         }
 
-        
+
 
         /*private void CustomerNew_Click(object sender, RoutedEventArgs e)
         {

@@ -54,7 +54,7 @@ namespace BillingManagement.UI.ViewModels
 
             Customers.Remove(SelectedCustomer);
 
-            //lvCustomers.SelectedIndex = currentIndex;
+            //lvCustomers.SelectedIndex = currentIndex;     //je ne comprend pas comment faire marcher ce bout de code
 
         }
         private void InitValues()
