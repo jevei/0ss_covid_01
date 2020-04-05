@@ -1,4 +1,5 @@
 ﻿<Window x:Class="BillingManagement.UI.MainWindow"
+        x:Name="Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -17,7 +18,7 @@
                     <Separator/>
                     <MenuItem Header="_Nouveau client" Command="{Binding CustomerNewCommand}" CommandParameter="{Binding ElementName=lvCustomers, Path=SelectedIndex}"/>
                     <Separator/>
-                    <MenuItem Header="_Quitter"/>
+                    <MenuItem Header="_Quitter" Click="MenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Édition">
                     <MenuItem Header="Couper..."/>
@@ -49,6 +50,7 @@
                     <TextBlock Text="Liste des clients" />
                     <ToolBar>
                         <Button Content="Nouveau client" Margin="6 0" Command="{Binding CustomerNewCommand}" CommandParameter="{Binding ElementName=lvCustomers, Path=SelectedIndex}"/>
+                        <Button Content="Quitter" Margin="6 0" Click="MenuItem_Click"/>
                     </ToolBar>
                 </StackPanel>
                 <ListView Grid.Row="1" ItemsSource="{Binding Customers}"

@@ -1,4 +1,5 @@
 ﻿using BillingManagement.UI.ViewModels;
+using BillingManagement.UI.ViewModels.Command;
 using System.Windows;
 
 namespace BillingManagement.UI
@@ -8,19 +9,17 @@ namespace BillingManagement.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        
 
         public MainWindow(CustomersViewModel vm)
         {
             InitializeComponent();
             DataContext = vm;
-            if()
-            {
-
-            }
         }
 
-
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Window.Close();
+        }
 
         /*private void CustomerNew_Click(object sender, RoutedEventArgs e)
         {
